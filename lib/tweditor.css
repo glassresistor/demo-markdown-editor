@@ -1,0 +1,27 @@
+div.tweditor.edit-mode div.html {
+    display: none;
+} 
+div.tweditor.view-mode div.markdown {
+    display: none;
+}
+div.tweditor.fullscreen div.markdown {
+    width: 48%;
+    height: 100%;
+    float: left;
+}
+div.tweditor.fullscreen div.html {
+    width:48%;
+    float: right;
+}
+ul.tweditorMenu {
+    list-style-type: none;
+
+}
+ul.tweditorMenu li {
+    display: inline;
+    margin: 10px;
+    font-size: 30px;
+}
+cursor:after {
+    content: "|";
+}

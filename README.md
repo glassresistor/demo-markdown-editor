@@ -6,6 +6,9 @@ In short TWEditor is a "What You Mean is What You Get" MarkDown editor with live
 
 Because Wysiwygs are not cool and often get in the way of writers writing.  Intended to be used with marked but work with modifications to the parser and lexer.
 
+##Live Demo
+See [here](http://glassresistor.github.io/tweditor/) for a live demo.
+
 ##Basic usage
 
 See index.html in the root of the repository.  

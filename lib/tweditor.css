@@ -25,6 +25,9 @@ ul.tweditorMenu {
     list-style-type: none;
     padding: 0px;
 }
+div.tweditor.fullscreen li.splitScreenButton, div.tweditor.edit-mode li.editModeButton, div.tweditor.view-mode li.viewModeButton { 
+    background-color: #eee;
+}
 ul.tweditorMenu li {
     display: inline;
     margin: 5px 0px;

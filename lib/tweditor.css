@@ -12,6 +12,14 @@ div.tweditor.fullscreen div.markdown {
 div.tweditor.fullscreen div.html {
     width:48%;
     float: right;
+    height: 100%;
+}
+div.tweditor.fullscreen {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100% !important;
+    height: 100% !important;
 }
 ul.tweditorMenu {
     list-style-type: none;

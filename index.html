@@ -1,17 +1,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="lib/tweditor.css">
-  <link rel="stylesheet" href="external-libs/codemirror/codemirror.css">
-  
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  
-  <script type="text/javascript" src="external-libs/marked.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
-  <script src="external-libs/codemirror/codemirror.js"></script>
-  <script src="external-libs/codemirror/mode/markdown/markdown.js"></script>
-  <script src="external-libs/codemirror/mode/xml/xml.js"></script>
-  
-  <script type="text/javascript" src="lib/tweditor.js"></script>
+  <script type="text/javascript" src="/tweditor.js"></script>
   <style>
     textarea#markdown {
       width: 500px;
@@ -37,13 +27,13 @@ dog's back.
 ### Header 3
 
 > This is a blockquote.
-> 
+>
 > This is the second paragraph in the blockquote.
 >
-> ## This is an H2 in a blockquote       
+> ## This is an H2 in a blockquote
 </textarea>
 <script>
-  tweditor('textarea#markdown');
+  tweditor.tweditor('textarea#markdown');
 </script>
 </body>
 </html>

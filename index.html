@@ -1,6 +1,7 @@
 <html>
 <head>
-  <link rel="stylesheet" href="lib/tweditor.css">
+  <link rel="stylesheet" href="/css/tweditor.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <script type="text/javascript" src="/tweditor.js"></script>
   <style>
     textarea#markdown {
@@ -10,30 +11,12 @@
   </style>
 </head>
 <body>
-<textarea id="markdown">
-**Bold** text in a normal-size paragraph.
+<div class="editableContent">
+# This is editableContent Number One
+</div>
 
-And a very long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long, wrapped line with a piece of **big** text inside of it.
-
-## A Second Level Header
-
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
-
-The quick brown fox jumped over the lazy
-dog's back.
-
-### Header 3
-
-> This is a blockquote.
->
-> This is the second paragraph in the blockquote.
->
-> ## This is an H2 in a blockquote
-</textarea>
 <script>
-  tweditor.tweditor('textarea#markdown');
+  tweditor.tweditor('.editableContent');
 </script>
 </body>
 </html>

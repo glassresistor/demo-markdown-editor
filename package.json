@@ -41,8 +41,9 @@
   ],
   "dependencies": {
     "codemirror": "~4.7.0",
-    "marked": "git+https://github.com/glassresistor/marked.git#feature/add_rules",
-    "jquery": "~2.1.0"
+    "font-awesome": "~4.2.0",
+    "jquery": "~2.1.0",
+    "marked": "git+https://github.com/glassresistor/marked.git#feature/add_rules"
   },
   "testling": {
     "harness": "mocha-bdd",

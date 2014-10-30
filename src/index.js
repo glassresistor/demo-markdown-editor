@@ -85,8 +85,11 @@ exports.separator = function() {
 exports.boldButton = function(editor, viewer) {
   var boldButton = $('<li class="editButton"><i class="fa fa-bold"></i></li>');
   boldButton.on("click", function() {
+    //remove other markdown
     var newText = editor.getSelection().replace('*', '', 'g');
-    editor.replaceSelection(' **'+newText+'** ', "end");
+    //remove spaces in front and back
+    newText = editor.getSelection().replace(/\s*$/, '').replace(/^\s*/, '');
+    editor.replaceSelection('**'+newText+'**', "end");
     editor.focus();
   });
   return boldButton;
@@ -95,8 +98,11 @@ exports.boldButton = function(editor, viewer) {
 exports.italicButton = function(editor, viewer) {
   var italicButton = $('<li class="editButton"><i class="fa fa-italic"></i></li>');
   italicButton.on("click", function() {
+    //remove other markdown
     var newText = editor.getSelection().replace('*', '', 'g');
-    editor.replaceSelection(' *'+newText+'* ', "end");
+    //remove spaces in front and back
+    newText = editor.getSelection().replace(/\s*$/, '').replace(/^\s*/, '');
+    editor.replaceSelection('*'+newText+'*', "end");
     editor.focus();
   });
   return italicButton;
@@ -110,33 +116,16 @@ exports.headerButton = function(editor, viewer) {
   }
   headerDropDown.on("change", function(e) {
     var headerDepth = parseInt($(e.target).val());
-    var cursorStart = editor.getCursor("start");
-    var cursorEnd = editor.getCursor("end");
-    for (var i = cursorStart.line; i<=cursorEnd.line; i++) {
-      var line = editor.getLine(i);
-      var tokens = exports.markdown.lexer(line);
-      var newLine = Array();
-      var hasHeader = false;
-      tokens.forEach(function(val, index) {
-        if (val.type === "blockquote_start") {
-          newLine.push('> ');
-        } else if (val.type === "heading") {
-          newLine.push(Array(headerDepth+1).join('#')+val.text);
-          hasHeader = true;
-        } else if (val.type === "paragraph") {
-          if (!hasHeader) {
-            newLine.push(Array(headerDepth+1).join('#')+val.text);
-            hasHeader = true;
-          } else {
-            newLine.push(val.text);
-          }
-        } else {
-          newLine.push(val.text);
-        }
-      });
-      editor.setLine(i, newLine.join(''));
-    }
-    editor.setSelection(cursorStart, cursorEnd);
+    var headerText = Array(headerDepth+1).join('#');
+    var oldtext = editor.getSelection('\n')
+      .replace(/\n#*/g, '\n')
+      .replace(/^#*/g, '');
+    var newtext = '\n' + headerText +
+      oldtext.replace(/\n/g, '\n' + headerText) + '\n';
+    newtext = newtext
+      .replace(/\n#*\s*\n/g, '\n')
+      .replace(/^#*\s*\n/g, '\n');
+    editor.replaceSelection(newtext);
     editor.focus();
   });
   var headerButton = $('<li class="editButton"></li>');
